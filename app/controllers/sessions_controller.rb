@@ -1,0 +1,7 @@
+class SesssionsControlller < ApplicationControlller
+
+
+
+
+
+end
