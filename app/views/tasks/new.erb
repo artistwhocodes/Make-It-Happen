@@ -1,0 +1,39 @@
+<section id="editpage">
+  <div class="container">
+
+  	<div class="row align-items-center">
+  		<div class="col-md-12">
+
+        <div class="card <%= current_user.house.house_name %> text-center">
+          <div class="card-header">
+             <h1>✨ Create A New Task ✨</h1>
+          </div>
+          <div class="card-body">
+            <form action="/tasks" method="POST">
+              <span class="input-style">
+                <input type="text" name="content" placeholder="As for now task can only be 28 char long." required autofocus>
+              </span>
+              <% if @task && @task.errors.any? %> <!-- check for error and if it is a user. cant call nil on errors -->
+                <% @task.errors.full_messages.each do |error|%>
+                  <p class="danger"><%= error %> </p>
+                <% end %>
+              <% end %>
+
+              <div id="buttons" class="row">
+                <div class="col-md-12">
+                  <input type="submit" class="btn btn-light" value="Submit">
+                </div>
+              </div>
+            </form>
+
+
+
+
+          </div> <!--card-body-->
+        </div> <!--card--->
+
+  		</div><!--container--->
+  	</div> <!--row--->
+
+  </div><!--container--->
+</section>

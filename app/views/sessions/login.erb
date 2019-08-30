@@ -1,0 +1,26 @@
+
+<div id="loginpage">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-signin" action="/login" method="post" >
+          <img class="mb-4" src="/images/logo.gif" >
+          <h1 class="h3 mb-3 font-weight-normal">Welcome Back!~</h1>
+          <label for="username" class="sr-only">Username</label>
+          <input id="username" type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+          <label for="paswword" class="sr-only">Password</label>
+          <input id="password" type="password" name="password" class="form-control" placeholder="Username" required autofocus><br>
+          <% if @failed %>
+          <p>
+            <button type="button" class="btn btn-outline-warning">
+              ✨Your username/password combo was incorrect.✨
+            </button>
+          </p>
+          <% end %>
+          <button class="btn btn-lg btn-dark btn-block" type="submit">Login</button>
+          <p class="mt-5 mb-3 text-muted">&copy;oded with ✨<i class="fas fa-magic"></i>✨ </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

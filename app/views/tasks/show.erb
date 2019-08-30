@@ -1,0 +1,40 @@
+<div id="showpage">
+  <div class="container text-center">
+  	<div class="row ">
+  		<div class="col-md-6  <%= current_user.house.house_name %>">
+  		</div>
+  		<div class="col-md-6">
+  			<div class="row align-items-center">
+  				<div class="col-md-12">
+              <h4><%= @task.content %></h4>
+              <%= @task.completed ? "10 points for completing this task! Great job!" : "You didn't finish this task. -10 POINTS from your house! kidding. You can do it!" %>
+
+  				</div>
+  			</div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-dark">
+              <a href="/tasks/<%= @task.id%>/edit">Edit</a>
+            </button>
+        </div>
+        <div class="col-md-6">
+          <form action="/tasks/<%=@task.id%>" method="post">
+           <input id="hidden" type="hidden" name="_method" value="DELETE">
+           <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+        </div>
+
+
+  		</div>
+  	</div>
+  </div>
+
+
+
+
+
+
+<div>

@@ -1,0 +1,74 @@
+<section id="profilepage" class="<%= current_user.house.house_name %>">
+<div class="container">
+  <div id="greeting" class="row">
+    <div class="card">
+      <h1 class="card-header">Welcome, <%= current_user.username%></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="row testz">
+        <div class="card">
+          <h6 class="card-header">Ongoing Tasks</h6>
+          <div class="card-body">
+           <h1 id="counter-ongoing" class="counters"><%= required_task %></h1>
+          </div>
+        </div>
+      </div> <!-- row1 -->
+      <div class="row testz">
+        <div class="card">
+          <h6 class="card-header">How many House points earned</h6>
+          <div class="card-body">
+            <h1 id="counter-earned" class="counters"><%= user_points %></h1>
+          </div>
+        </div>
+      </div> <!-- row2 -->
+    </div> <!-- col 1 of 2 -->
+    <div class="col-md-2 <%= current_user.house.house_name %>">
+
+    </div>
+    <div class="col-md-5">
+      <div class="row testz">
+        <div class="card">
+          <h6 class="card-header">Completed Tasks</h6>
+          <div class="card-body">
+            <h1 id="counter-completed" class="counters"><%= completed_task %></h1>
+          </div>
+        </div>
+      </div> <!-- row3 of 4-->
+      <div class="row testz">
+        <div class="card">
+          <h6 class="card-header"><%= current_user.house.house_name.capitalize %> Points</h6>
+          <div class="card-body">
+            <h1 id="counter-user" class="counters"><%= house_points %></h1>
+          </div> <!-- card- body -->
+        </div><!-- card -->
+      </div> <!-- row4 of 4-->
+    </div> <!-- col 3 -->
+  </div> <!--- row 1 of 3 -->
+  <div id="accomplishments" class="<%= current_user.house.house_name %>">
+  <div class="row testz">
+    <div class="card">
+      <h2 class="card-header">Accomplishments</h2>
+      <div class="card-body">
+        <% @index = 0 %>
+        <% @tasks.reverse_each do |task| %>
+          <span class=<%= task.completed ? "completed" : "required" %>>
+            <% if task.user == current_user && task.completed == true %>    <!--  is there a cleaner way to do this? -->
+              <span class="taskbar">
+                <li class="<%= task.house.house_name %>">
+                  <a href="/tasks/<%= task.id %>">
+                    <% @index += 1%>
+                    <%= @index.to_s + ". " + task.content%>
+                  </a>
+                </li>
+              </span>
+            <% end %>
+          </span>
+        <% end %>
+      </div><!-- card-body -->
+    </div> <!-- card -->
+  </div> <!-- row3 of 3 -->
+ </div> <!--accomplishments-->
+</div> <!-- container -->
+</section> <!-- profilepage -->

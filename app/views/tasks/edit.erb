@@ -1,0 +1,38 @@
+<section id="editpage">
+  <div class="container">
+
+  	<div class="row align-items-center">
+  		<div class="col-md-12">
+
+        <div class="card <%= @task.house.house_name %> text-center">
+          <div class="card-header">
+             <h1>Edit/Upate Task</h1>
+          </div>
+          <div class="card-body">
+            <form action="/tasks/<%= @task.id %>" method="post">
+              <input type="hidden" name="_method" value="patch">
+              <h4><label for="completed">Check the box if completed:</label>
+              <input id="completed" name="completed" type="checkbox" <%= "checked" if @task.completed%> ></h4>
+              <br>
+              <span class="input-style">
+              <input type="text" name="content" value="<%= @task.content %>" required autofocus>
+              </span>
+              <br>
+              <div id="buttons" class="row">
+             <div class="col-md-6">
+              <input type="submit" class="btn btn-light" value="Update">
+              </div>
+              <div class="col-md-6">
+               <button type="button" class="btn btn-light">   <a href="/tasks">Cancel</a></button>
+               </div>
+              </div>
+            </form>
+
+          </div> <!--card-body-->
+        </div> <!--card--->
+
+  		</div><!--container--->
+  	</div> <!--row--->
+
+  </div><!--container--->
+</section>

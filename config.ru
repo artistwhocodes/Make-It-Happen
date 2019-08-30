@@ -12,6 +12,8 @@ require './config/env'
 
 
 use Rack::MethodOverride
-use SesssionsControlller
+use SessionsController
+use TasksController
+use HouseController
 #SInatra tells what run is
-run Applicationcontroller
+run ApplicationController

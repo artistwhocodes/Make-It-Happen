@@ -7,20 +7,39 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=League+Script|Source+Sans+Pro:900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<%= url("/css/style.css")%>">
+    <!-- url helper, which will ensure the correct url will be used even if your app
+    is mounted at another point or behind a proxy -->
 </head>
 <body>
-  <h1>MAKE IT HAPPEN</h1>
+  <% if logged_in? %>
+        <nav id="myTab" class="nav nav-pills nav-justified">
+          <a class="nav-item nav-link navbar-brand logo" href="#">
+            <img src="/images/logo.gif"  alt="">
+          </a>
+          <a href="/profile/<%= current_user.username if logged_in? %>" class="nav-item nav-link active fas fa-hat-wizard"><h3> Profile</h3></a>
+          <a href="/tasks" class="nav-item nav-link fas fa-tasks"><h3> My tasks</h3> </a>
+          <a href="/house" class="nav-item nav-link fas fa-hourglass-half"><h3> House points</h3></a>
+
+              <form action="/logout" method="post" class="logout">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="nav-item nav-link far fa-times-circle"></button>
+              </form>
+
+            </nav>
+        <% end %>
+
   <%= yield %>
 
-  <div class="alert alert-primary" role="alert">
-    A simple primary alert—check it out!
-  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/mojs/0.288.1/mo.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/mojs-player/0.43.15/mojs-player.min.js" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/mojs/0.288.1/mo.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/mojs-player/0.43.15/mojs-player.min.js" crossorigin="anonymous"></script>
+<script src="/js/my-scripts.js"></script>
 </body>
 <html>

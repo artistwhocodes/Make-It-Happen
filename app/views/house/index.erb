@@ -1,0 +1,64 @@
+
+
+<section id="housespage">
+  <div id="houses" class="container">
+    <div id="greeting" class="row">
+      <div class="card">
+        <h2 class="card-header"><font color="black">❝</font>I mark the hours, every one, Nor have I yet outrun the Sun. My use and value, unto you, Are gauged by what you have to do.<font color="black">❞</font></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 housespoints">
+        <div class="row">
+          <div class="card text-center">
+            <div class="card-body ravenclaw">
+             <p> <span id="ravenclaw-size"> </span></p>
+            </div>
+          </div>
+        </div> <!-- row1 -->
+        <div class="row">
+          <div class="card text-center">
+            <div class="card-body hufflepuff">
+              <p> <span id="hufflepuff-size"> </span></p>
+            </div>
+          </div>
+        </div> <!-- row2 -->
+      </div> <!-- col 1 of 2 -->
+      <div class="col-md-2 hourglass">
+
+      </div>
+      <div class="col-md-5 housespoints">
+        <div class="row">
+          <div class="card text-center">
+            <div class="card-body slytherin">
+              <p> <span id="slytherin-size"> </span></p>
+            </div>
+          </div>
+        </div> <!-- row3 of 4-->
+        <div class="row">
+          <div class="card text-center">
+            <div class="card-body gryffindor">
+                <p> <span id="gryffindor-size"> </span></p>
+            </div> <!-- card- body -->
+          </div><!-- card -->
+        </div> <!-- row4 of 4-->
+      </div> <!-- col 3 -->
+    </div> <!--- row 1 of 3 -->
+    <div id="achievements" class="<%= current_user.house.house_name %>">
+    	<div class="row">
+          <div class="card">
+            <h1 class="card-header">Completed Tasks</h1>
+            <div class="card-body">
+              <% @tasks.each do |task| %>
+                <span class=<%= task.completed ? "completed" : "required" %>>
+                  <% if task.completed == true %>
+                   <li class="<%= task.house.house_name %>"> <%= task.content %> </li>
+                  <% end %>
+                </span>
+              <% end %>
+            </div>
+          </div>
+    	</div>
+    </div><!--achievements-->
+  </div>
+</section>
