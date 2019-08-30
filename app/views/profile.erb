@@ -2,7 +2,16 @@
 <div class="container">
   <div id="greeting" class="row">
     <div class="card">
-      <h1 class="card-header">Welcome, <%= current_user.username%></h1>
+      <h1 class="card-header">
+        Welcome, <%= current_user.username%></h1>
+
+      <form action="/tasks/search" method="get">
+          <input type="text" name="content" required autofocus>
+          <input type="submit" value="search">
+      </form>
+
+
+
     </div>
   </div>
   <div class="row">
@@ -51,19 +60,19 @@
     <div class="card">
       <h2 class="card-header">Accomplishments</h2>
       <div class="card-body">
-        <% @index = 0 %>
+        <% @index = @tasks.length %> <!--  get this to start at 0 -->
         <% @tasks.reverse_each do |task| %>
           <span class=<%= task.completed ? "completed" : "required" %>>
-            <% if task.user == current_user && task.completed == true %>    <!--  is there a cleaner way to do this? -->
+
               <span class="taskbar">
                 <li class="<%= task.house.house_name %>">
                   <a href="/tasks/<%= task.id %>">
-                    <% @index += 1%>
+                    <% @index -= 1%>
                     <%= @index.to_s + ". " + task.content%>
                   </a>
                 </li>
               </span>
-            <% end %>
+
           </span>
         <% end %>
       </div><!-- card-body -->

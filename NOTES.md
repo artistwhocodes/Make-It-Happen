@@ -77,19 +77,15 @@ https://dev.to/micahshute/developing-style-sinatra-security-decorator-design-pat
 CTRL FIND SESSION_SECRET
 http://sinatrarb.com/intro.html
 
-hotel del luna ep.4 :BREAK WATCH
-https://www3.dramacool.video/hotel-del-luna-episode-4.html
+hotel del luna ep.12 :BREAK WATCH 17:56
+https://www4.dramacool.video/hotel-del-luna-episode-12.html
 
 GOOGLE FLASH
 https://www.blog.google/products/chrome/saying-goodbye-flash-chrome/
 
-https://github.com/matt297/sinatra-dev-cheatsheet#adding-a-stylesheet
-https://flatironschool.com/blog/how-to-build-a-sinatra-web-app-in-10-steps
+
 SinatraCRUD pt1
 34.01 Session talk
 41.00 session secret
 
-<img src="/images/ravenclawhourglassfff.gif" class="img-fluid shape" alt="Responsive image">
-
-  <p> Ravenclaw Points:<span id="ravenclaw-size"> </span></p>
-If its a class of .gryffindor .slytherin .ravenclaw .hufflepuff
+    <% if task.user == current_user && task.completed == true %>    <

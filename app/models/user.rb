@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :tasks
+  has_many :tasks , dependent: :destroy
   belongs_to :house
   validates :name, presence: true, format: { with: /\A[a-zA-Z]+\z/,
     message: "only allows letters" }

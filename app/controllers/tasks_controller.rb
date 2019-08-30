@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
 
+
   get '/tasks' do
     authenticate
     @houses = House.all
-    @tasks = Task.all
+    @tasks = Task.where(user: current_user).where(completed: false)
     erb :"tasks/index"
   end
 
@@ -12,11 +13,24 @@ class TasksController < ApplicationController
     erb :"tasks/new"
   end
 
+
+    get '/tasks/search' do
+      @tasks = Task.where("content LIKE ?", "%#{params[:content]}%").where(user: current_user)
+ 
+      erb :"/tasks/index"
+    end
+
+
+
+
   get '/tasks/:id' do  #55:44
     authenticate
     @task = Task.find_by(id: params[:id])
     erb :"tasks/show"
   end
+
+
+
 
   post '/tasks' do  # behind the scene it build it then resend it to task part.
     #add build and do error messae for current user.

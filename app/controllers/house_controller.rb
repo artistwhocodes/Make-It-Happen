@@ -5,9 +5,10 @@ class HouseController < ApplicationController
     authenticate
     @houses = House.all
     @tasks = Task.all
+
     erb :"house/index"
   end
 
- 
+
 
 end

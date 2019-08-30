@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
     erb :'oops' #do 404 PAGE
   end
   # CHANGE THIS BELOW . I DONT LIKE
-  error { @error = request.env['sinatra_error'] ; haml :'500' }
+  # error { @error = request.env['sinatra_error'] ; haml :'500' }
 
   get '/'  do
     erb :index
@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
 
   get '/profile/:username' do
     authenticate #only users access
-    @tasks = Task.all
+    @tasks = Task.where(user: current_user).where(completed: true)
     erb :profile
   end
 

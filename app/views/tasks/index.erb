@@ -8,7 +8,7 @@
            <div class="card-body <%= current_user.house.house_name %>">
               <% @tasks.each do |task| %>
                 <span class=<%= task.house.house_name %> <%= task.completed ? "completed" : "required" %>>
-                  <% if task.completed == false && task.user == current_user %>    <!--  is there a cleaner way to do this? helper?-->
+                   <!--  is there a cleaner way to do this? helper?-->
                     <li class="taskbar">  <a href="/tasks/<%= task.id %>"> <%= task.content%></a>
                       <form class="icon tasktools" action="/tasks/<%= task.id %>" method="post">
                         <input type="hidden" name="_method" value="delete">
@@ -17,7 +17,7 @@
                       <a href="/tasks/<%= task.id%>/edit" class="tasktools fas fa-cog fa-spin"></a>
                       <a class="tasktools far fa-square"></a> <!-- this will be for description -->
                     </li>
-                  <% end %>
+           
                 </span>
               <% end %>
               <a href="/tasks/new">
