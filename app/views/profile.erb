@@ -60,10 +60,10 @@
     <div class="card">
       <h2 class="card-header">Accomplishments</h2>
       <div class="card-body">
-        <% @index = @tasks.length %> <!--  get this to start at 0 -->
-        <% @tasks.reverse_each do |task| %>
+        <% @index = @tasks_user.length + 1%>
+        <% @tasks_user.reverse_each do |task| %>
           <span class=<%= task.completed ? "completed" : "required" %>>
-
+              <% if task.user == current_user && task.completed == true %>
               <span class="taskbar">
                 <li class="<%= task.house.house_name %>">
                   <a href="/tasks/<%= task.id %>">
@@ -72,7 +72,7 @@
                   </a>
                 </li>
               </span>
-
+            <% end %>
           </span>
         <% end %>
       </div><!-- card-body -->

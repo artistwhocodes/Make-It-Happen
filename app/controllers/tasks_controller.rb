@@ -14,11 +14,11 @@ class TasksController < ApplicationController
   end
 
 
-    get '/tasks/search' do
-      @tasks = Task.where("content LIKE ?", "%#{params[:content]}%").where(user: current_user)
- 
-      erb :"/tasks/index"
-    end
+  get '/tasks/search' do
+    @tasks = Task.where("content LIKE ?", "%#{params[:content]}%").where(user: current_user)
+
+    erb :"/tasks/index"
+  end
 
 
 

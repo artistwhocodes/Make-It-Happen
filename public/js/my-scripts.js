@@ -8,6 +8,7 @@ var RAVENCLAW = $('.completed li[class=ravenclaw]').length; //counts
 var SLYTHERIN = $('.completed li[class=slytherin]').length;
 var GRYFFINDOR = $('.completed li[class=gryffindor]').length;
 var HUFFLEPUFF = $('.completed li[class=hufflepuff]').length;
+var ONGOINGTASK = $('.required').length;
 
 function housebanner(){
     $('#profilepage .col-md-2.ravenclaw').prepend('<img src="/images/ravenclawbanner.png" class="img-fluid" alt="Responsive image">');

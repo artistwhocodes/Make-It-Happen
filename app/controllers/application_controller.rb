@@ -23,7 +23,8 @@ class ApplicationController < Sinatra::Base
 
   get '/profile/:username' do
     authenticate #only users access
-    @tasks = Task.where(user: current_user).where(completed: true)
+    @tasks_user = Task.where(user: current_user).where(completed: true)
+    @tasks_all = Task.all
     erb :profile
   end
 
@@ -54,7 +55,7 @@ class ApplicationController < Sinatra::Base
 
     def house_points
       counts = 0
-      @tasks.each do |task|
+      @tasks_all.each do |task|
         if task.completed == true && task.house.house_name == current_user.house.house_name
           @house_points = counts += 1
         end
@@ -68,7 +69,7 @@ class ApplicationController < Sinatra::Base
 
     def user_points
       counts = 0
-      @tasks.each do |task|
+      @tasks_all.each do |task|
         if task.completed == true  && current_user == task.user
              @user_points = counts += 1
          end
@@ -82,7 +83,7 @@ class ApplicationController < Sinatra::Base
 
     def required_task
       counts = 0
-      @tasks.each do |task|
+      @tasks_all.each do |task|
         if task.completed == false  && current_user == task.user
              @required_num = counts += 1
          end
@@ -96,7 +97,7 @@ class ApplicationController < Sinatra::Base
 
     def completed_task
       counts = 0
-      @tasks.each do |task|
+      @tasks_all.each do |task|
         if task.completed == true  && current_user == task.user
              @completed_num = counts += 1
          end
